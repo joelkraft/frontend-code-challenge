@@ -27,7 +27,7 @@ define([
       this.listenTo(this.model, 'change', this.render);
       this.listenTo(this.model, 'invalid', this.showError);
     },
-    
+
     saveBug: function(e) {
       var summary = this.$el.find('.summary').val();
       var description = this.$el.find('.description').val();
@@ -36,8 +36,12 @@ define([
         summary:summary,
         description:description
       });
-    }
+    },
 
+    editBug: function() {
+      this.model.editing = true;
+      this.render();
+    }
     // @TODO implement functions to handle 'editBug'
     // @TODO implement functions to handle 'saveBug'
     // @TODO implement functions to handle 'removeBug'
