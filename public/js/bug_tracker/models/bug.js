@@ -13,6 +13,11 @@ define([
     },
 
     // @TODO Validate that this model's summary is set
+    validate: function (attrs, options) {
+      if (attrs.summary === '') {
+        return 'Summary needs to have content.'
+      }
+    }
   });
 
   return BugModel;

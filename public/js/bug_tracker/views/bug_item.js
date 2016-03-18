@@ -31,6 +31,7 @@ define([
     saveBug: function(e) {
       var summary = this.$el.find('.summary').val();
       var description = this.$el.find('.description').val();
+      
       this.model.editing = false;
       this.model.save({
         summary:summary,
@@ -45,6 +46,11 @@ define([
 
     removeBug: function() {
       this.model.destroy();
+    },
+
+    showError: function() {
+      this.model.editing = true;
+      this.render();
     }
     // @TODO implement functions to handle 'editBug'
     // @TODO implement functions to handle 'saveBug'
