@@ -16,7 +16,6 @@ define([
     templateHelpers: function () {
       return {
         error: this.model.validationError,
-        editing: this.model.editing
       };
     },
 
@@ -32,7 +31,7 @@ define([
       var summary = this.$el.find('.summary').val();
       var description = this.$el.find('.description').val();
       
-      this.model.editing = false;
+      this.model.set('editing', false);
       this.model.save({
         summary:summary,
         description:description
@@ -40,24 +39,19 @@ define([
     },
 
     editBug: function() {
-      this.model.editing = true;
+      this.model.set('editing', true);
       this.render();
     },
 
     removeBug: function() {
       this.model.destroy();
+      this.destroy();
     },
 
     showError: function() {
-      this.model.editing = true;
+      this.model.set('editing', true);
       this.render();
     }
-    // @TODO implement functions to handle 'editBug'
-    // @TODO implement functions to handle 'saveBug'
-    // @TODO implement functions to handle 'removeBug'
-
-    // @TODO implement function to handle an 'invalid' event from the model
-
   });
 
   return BugItemView;
