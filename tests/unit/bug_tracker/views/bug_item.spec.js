@@ -17,6 +17,15 @@ define([
     });
 
     // @TODO write tests to match the implementation :)
-
+    it('should be able to save', function() {
+      view.model.urlRoot = '/api/bug';
+      var renderedView = view.render();
+      renderedView.$el.find('.summary').val('summary');
+      renderedView.$el.find('.description').val('description');
+      view.saveBug({});
+      var s = renderedView.$el.find('.summary').val();
+      var d = renderedView.$el.find('.description').val();
+      expect(s).toEqual('summary');
+    })
   });
 });
