@@ -30,7 +30,7 @@ define([
     },
 
     refresh: function(e) {
-      
+      this.collection.fetch();
     }
 
     // @TODO implement functions to handle 'addBug'
