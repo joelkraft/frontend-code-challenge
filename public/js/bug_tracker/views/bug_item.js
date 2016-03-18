@@ -41,6 +41,10 @@ define([
     editBug: function() {
       this.model.editing = true;
       this.render();
+    },
+
+    removeBug: function() {
+      this.model.destroy();
     }
     // @TODO implement functions to handle 'editBug'
     // @TODO implement functions to handle 'saveBug'
