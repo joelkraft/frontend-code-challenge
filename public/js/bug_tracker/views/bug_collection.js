@@ -20,8 +20,17 @@ define([
 
     events: {
       'click .js_add': 'addBug',
-      'click .js_refresh': 'refresh',
+      'click .js_refresh': 'refresh'
     },
+
+    addBug: function(e) {
+      var bugModel = new BugModel();
+      this.collection.add(bugModel);
+    },
+
+    refresh: function(e) {
+      
+    }
 
     // @TODO implement functions to handle 'addBug'
     // @TODO implement functions to handle 'refresh'

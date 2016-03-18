@@ -6,7 +6,7 @@ define([
 
   var BugCollection = Backbone.Collection.extend({
     model: BugModel,
-    url: '/api/bug',
+    url: '/api/bug'
   });
 
   return BugCollection;
