@@ -16,6 +16,7 @@ define([
     templateHelpers: function () {
       return {
         error: this.model.validationError,
+        editing: this.model.editing
       };
     },
 
@@ -26,6 +27,16 @@ define([
       this.listenTo(this.model, 'change', this.render);
       this.listenTo(this.model, 'invalid', this.showError);
     },
+    
+    saveBug: function(e) {
+      var summary = this.$el.find('.summary').val();
+      var description = this.$el.find('.description').val();
+      this.model.editing = false;
+      this.model.save({
+        summary:summary,
+        description:description
+      });
+    }
 
     // @TODO implement functions to handle 'editBug'
     // @TODO implement functions to handle 'saveBug'

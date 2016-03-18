@@ -25,6 +25,7 @@ define([
 
     addBug: function(e) {
       var bugModel = new BugModel();
+      bugModel.editing = true;
       this.collection.add(bugModel);
     },
 
